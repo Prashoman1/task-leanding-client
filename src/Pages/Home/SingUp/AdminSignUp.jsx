@@ -1,22 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+
+import Adminanimation from "../../../../src/assets/adminRegistration.json";
 import Lottie from "lottie-react";
 import { Link, useNavigate } from "react-router-dom";
-import RegistrationAnimation from "../../../../src/assets/registration.json";
 
 import { toast } from "react-toastify";
-import { useForm } from "react-hook-form";
+
 import { HiEye, HiEyeOff } from "react-icons/hi";
 
 const imgHostKey = "256b673c9efeb9c3ff7d892a8f3857fe";
-// console.log(imgHostKey);
-
-export default function SingUp() {
-  // const [auth,setAuth]= useContext(ContextProvider);
-  // console.log("nai",auth);
+export default function AdminSignUp() {
   const [pMatch, setPmatch] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showCPassword, setShowCPassword] = useState(false);
+  
   const [error, setError] = useState({
     name: "",
     email: "",
@@ -121,7 +120,7 @@ export default function SingUp() {
             email: data.email,
             phone: data.phone,
             password: data.password,
-            role: "user",
+            role: "admin",
             image: imgUrl,
           };
           console.log(userInfo);
@@ -150,34 +149,13 @@ export default function SingUp() {
         }
       });
   };
-
-  // const handleRegister = (e) => {
-  //     e.preventDefault();
-  //     const form = e.target;
-  //     const name = form.name.value;
-  //     const email = form.email.value;
-  //     const password = form.password.value;
-  //     const c_password = form.Cpassword.value;
-  //     //console.log(name,email,password,c_password);
-  //     if(password !== c_password){
-  //         alert("Password and confirm password not match");
-  //         return;
-  //     }
-  //     console.log(image);
-  //     if(image){
-  //         const formData = new FormData();
-  //         formData.append("image", image);
-
-  // }
-
-  // }
   return (
     <div>
       <div className="hero min-h-screen bg-base-200 lg:px-24 lg:py-8">
         <div className="w-full lg:flex justify-center items-center">
           <div className="text-center sm:w-full lg:w-1/2">
             <div className=" lg:w-3/4">
-              <Lottie animationData={RegistrationAnimation} loop={true} />
+              <Lottie animationData={Adminanimation} loop={true} />
             </div>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 sm:mt-7 lg:mt-0">
@@ -208,8 +186,8 @@ export default function SingUp() {
                 )}
 
                 {/* {errors.name && (
-                  <p className="text-red-500 text-xs">{errors.name.message}</p>
-                )} */}
+                <p className="text-red-500 text-xs">{errors.name.message}</p>
+              )} */}
                 <div className="form-control">
                   <label className="label !pb-1">
                     <span className="label-text">Email*:</span>
@@ -233,8 +211,8 @@ export default function SingUp() {
                   )
                 )}
                 {/* {errors.email && (
-                  <p className="text-red-500 text-xs">{errors.email.message}</p>
-                )} */}
+                <p className="text-red-500 text-xs">{errors.email.message}</p>
+              )} */}
 
                 <div className="form-control">
                   <label className="label !pb-1">
@@ -259,8 +237,8 @@ export default function SingUp() {
                   )
                 )}
                 {/* {errors.phone && (
-                  <p className="text-red-500 text-xs">{errors.phone.message}</p>
-                )} */}
+                <p className="text-red-500 text-xs">{errors.phone.message}</p>
+              )} */}
                 <div className="form-control relative">
                   <label className="label !pb-1">
                     <span className="label-text">Password*:</span>
@@ -301,10 +279,10 @@ export default function SingUp() {
                   )
                 )}
                 {/* {errors.password && (
-                  <p className="text-red-500 text-xs">
-                    {errors.password.message}
-                  </p>
-                )} */}
+                <p className="text-red-500 text-xs">
+                  {errors.password.message}
+                </p>
+              )} */}
                 <div className="form-control relative">
                   <label className="label !pb-1">
                     <span className="label-text">Confirm Password*:</span>

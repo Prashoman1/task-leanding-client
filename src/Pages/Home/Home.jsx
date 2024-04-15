@@ -1,13 +1,12 @@
 import AllProduct from "./AllProduct/AllProduct";
-import MenuBar from "./MenuBar/MenuBar";
 
-
+import Slider from "./Slider/Slider";
 
 export default function Home() {
   return (
     <div>
-     <MenuBar></MenuBar>
-     <AllProduct></AllProduct>
+        <Slider></Slider>
+      <AllProduct></AllProduct>
     </div>
-  )
+  );
 }
